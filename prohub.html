@@ -132,9 +132,9 @@
 <body>
   <h1>Welcome to Sigmaweb Hub</h1>
   <div class="button-container">
-    <a href="https://good-player.github.io/sigmaweb/hub.html" class="button" onclick="redirectTo('Normal Hub')">Back to normal Hub</a>
-    <a href="a1.html" class="button" onclick="redirectTo('??')">Idk, this page is on alpha.</a>
-    <a href="pp.html" class="button" onclick="redirectTo('Privacy Policy')">Privacy Policy</a>
+    <a href="https://good-player.github.io/sigmaweb/hub.html" class="button" onclick="redirectTo('Hub', event)">Go Normal Hub</a>
+    <a href="a1.html" class="button" onclick="redirectTo('smth', event)">Smth idk</a>
+    <a href="pp.html" class="button" onclick="redirectTo('Privacy Policy', event)">Privacy Policy</a>
   </div>
 
   <div class="redirect-overlay" id="redirectOverlay">
@@ -150,7 +150,7 @@
   </footer>
 
   <script>
-    function redirectTo(destination) {
+    function redirectTo(destination, event) {
       event.preventDefault(); // Prevent the default link click behavior
 
       const overlay = document.getElementById('redirectOverlay');
@@ -167,7 +167,7 @@
       // Redirect after the progress animation
       setTimeout(() => {
         window.location.href = event.target.href;
-      }, 1500);
+      }, 3000);
     }
   </script>
 </body>
