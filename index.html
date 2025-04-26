@@ -5,65 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Sigmaweb PRO</title>
   <style>
-    /* General styling */
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f9;
+    /* Reset and Base Styling */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    h1 {
-      margin-top: 20px;
-      color: #333;
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #1e1e30, #3a3a58);
+      color: #ffffff;
+      overflow-x: hidden;
+      text-align: center;
     }
 
-    /* Highlight effect for "PRO" */
-    .highlight {
-      color: #ff5722;
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
       font-weight: bold;
-      animation: glow 1.5s infinite;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #ff5800;
+      animation: fadeIn 2s ease-out;
     }
 
-    @keyframes glow {
-      0% {
-        text-shadow: 0 0 5px #ff5722;
+    .hero span {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: lighter;
+      display: block;
+      margin-top: 10px;
+      animation: fadeIn 2.5s ease-out;
+    }
+
+    .hero .highlight {
+      color: #ff5800;
+      text-shadow: 0 0 10px #ff5800, 0 0 20px #ff5800;
+      animation: pulse 1.5s infinite;
+    }
+
+    .hero .buttons {
+      margin-top: 30px;
+      animation: fadeIn 3s ease-out;
+    }
+
+    .hero .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(to right, #ff5800, #ff8c00);
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .hero .button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #ff8c00, #ff5800);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 10px #ff5800, 0 0 20px #ff5800;
       }
       50% {
-        text-shadow: 0 0 20px #ff5722;
-      }
-      100% {
-        text-shadow: 0 0 5px #ff5722;
+        text-shadow: 0 0 20px #ff5800, 0 0 40px #ff5800;
       }
     }
 
-    /* Button styling */
-    .button {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
+    /* Footer */
+    footer {
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      background-color: #2a2a40;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ff5800;
       text-decoration: none;
-      color: white;
-      background-color: #007bff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    .button:hover {
-      background-color: #0056b3;
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Sigmaweb <span class="highlight">PRO</span></h1>
-  <div>
-    <a href="https://good-player.github.io/sigmaweb/hub.html" class="button">BACK TO HUB</a>
-    <a href="a1.html" class="button">Go to A1</a>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to <span class="highlight">Sigmaweb PRO</span></h1>
+    <span>Your ultimate platform</span>
+    <div class="buttons">
+      <a href="https://good-player.github.io/sigmaweb/hub.html" class="button">Back to Hub</a>
+      <a href="a1.html" class="button">Go to A1</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Sigmaweb. All rights reserved. | <a href="pp.html">Privacy Policy</a></p>
+  </footer>
 </body>
 </html>
