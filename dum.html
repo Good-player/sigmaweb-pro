@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proof: 1+1 = 2</title>
+    <title>Proof: 1 + 1 = 2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,19 +34,35 @@
         .hub-button:hover {
             background-color: #0056b3;
         }
-        textarea {
-            width: 100%;
-            height: 300px;
-            margin-bottom: 20px;
-            padding: 10px;
+        .text-content {
+            background: #fff;
+            padding: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            background: #fff;
+            overflow: visible;
+            margin-bottom: 30px;
+            white-space: pre-wrap; /* Preserve formatting */
+        }
+        .pdf-controls {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .pdf-controls a {
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .pdf-controls a:hover {
+            background-color: #0056b3;
         }
         iframe {
             width: 100%;
             height: 500px;
             border: none;
+            display: none; /* Hidden by default, toggled by JavaScript */
         }
     </style>
 </head>
@@ -58,9 +74,15 @@
         <a href="prohub.html" class="hub-button">Go to Hub</a>
         <h2>Description</h2>
         <p>The proof that 1 + 1 = 2 has been a cornerstone in the foundations of mathematics and philosophy, spanning discussions in logic, formal systems, and set theory.</p>
+        
         <h2>Content of 1+1.txt</h2>
-        <textarea id="textContent" readonly>Loading...</textarea>
+        <div id="textContent" class="text-content">Loading...</div>
+        
         <h2>PDF Preview</h2>
+        <div class="pdf-controls">
+            <button id="togglePdf" type="button">Expand PDF</button>
+            <a href="1%20%2B%201%20%3D%202_%20Formal%20Foundations%20and%20Meaning.pdf" target="_blank">Open PDF in New Tab</a>
+        </div>
         <iframe id="pdfPreview" title="PDF Preview"></iframe>
     </div>
     <script>
@@ -75,8 +97,20 @@
                 console.error('Error loading text file:', error);
             });
 
-        // Load the PDF into the iframe
-        document.getElementById('pdfPreview').src = '1%20%2B%201%20%3D%202_%20Formal%20Foundations%20and%20Meaning.pdf';
+        // Toggle PDF preview visibility
+        const togglePdfButton = document.getElementById('togglePdf');
+        const pdfPreview = document.getElementById('pdfPreview');
+        pdfPreview.src = '1%20%2B%201%20%3D%202_%20Formal%20Foundations%20and%20Meaning.pdf';
+
+        togglePdfButton.addEventListener('click', () => {
+            if (pdfPreview.style.display === 'none') {
+                pdfPreview.style.display = 'block';
+                togglePdfButton.textContent = 'Collapse PDF';
+            } else {
+                pdfPreview.style.display = 'none';
+                togglePdfButton.textContent = 'Expand PDF';
+            }
+        });
     </script>
 </body>
 </html>
